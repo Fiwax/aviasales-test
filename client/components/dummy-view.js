@@ -1,15 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Head from './head'
+import Logo from './logo'
+import Block from './block'
+import { getSearchId, getTickets } from '../redux/reducers/tickets'
 
 const Dummy = () => {
+  const dispatch = useDispatch()
+  const { searchId, stop } = useSelector((s) => s.tickets)
+
+  useEffect(() => {
+    dispatch(getSearchId())
+  }, [])
+
+  useEffect(() => {
+    if (searchId && !stop) {
+      dispatch(getTickets())
+    }
+  }, [searchId, stop])
+
   return (
     <div>
       <Head title="Hello" />
-      <div className="flex items-center justify-center h-screen">
-        <div className="bg-indigo-800 hover:text-red-500 text-white font-bold rounded-lg border shadow-lg p-10">
-          This is dummy component 1234
-        </div>
-      </div>
+      <Logo />
+      <Block />
     </div>
   )
 }

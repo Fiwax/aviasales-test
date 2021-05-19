@@ -1,0 +1,28 @@
+input[type="checkbox"] {
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+}
+
+.check__box {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('../assets/images/Checkbox-off.jpg');
+}
+
+.checkbox:checked + .check__box {
+  background-image: url('../assets/images/Checkbox-on.jpg');
+}
+
+.transfer-amount {
+ font-weight: 600;
+ font-size: 12px;
+ line-height: 12px;
+}
+
+.tabs__text {
+ font-weight: 600;
+ font-size: 12px;
+ line-height: 20px;
+}
